@@ -1,0 +1,32 @@
+.dice-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.die {
+  align-items: center;
+  background: yellow;
+  border-radius: 5px;
+  color: red;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  margin: 10px;
+  width: 100px;
+}
+
+.die-button {
+  width: 100%;
+}
+
+.die-input {
+  background: none;
+  border: 0;
+  color: red;
+  font-size: 24px;
+  padding: 0;
+  padding-left: 17px;
+  text-align: center;
+  width: 83px;
+}
