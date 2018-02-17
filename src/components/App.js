@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import uuid from 'uuid/v4';
 import Die from './Die';
 import Navigation from './functional/Navigation';
 
@@ -8,26 +9,23 @@ class App extends Component {
 
     this.state = {
       soundOn: false,
-      dice: [],
+      dice: ['initial'],
     };
-  }
 
-  componentDidMount() {
-    if (this.state.dice.length === 0) {
-      this.setState({ dice: [
-        <Die
-          key={this.state.dice.length + 1}
-          index={this.state.dice.length + 1}
-          removeDie={this._removeDie.bind(this)}
-        />
-      ] });
-    }
+    this._addDie = this._addDie.bind(this);
   }
   render() {
+    const diceArray = this.state.dice.map((uuid, index) => (
+      <Die
+        key={uuid}
+        index={index}
+        removeDie={this._removeDie.bind(this)}
+      />
+    ));
     return (
       <div className="app-container">
         <div className="dice-container">
-          {this.state.dice}
+          {diceArray}
         </div>
         <Navigation
           addDie={this._addDie.bind(this)}
@@ -40,20 +38,13 @@ class App extends Component {
 
   _addDie() {
     const diceArray = this.state.dice || [];
-    diceArray.push(
-      <Die
-        key={diceArray.length + 1}
-        index={diceArray.length + 1}
-        removeDie={this._removeDie.bind(this)}
-      />
-    );
+    diceArray.push(uuid());
     this.setState({ dice: diceArray });
   }
 
   _removeDie(index) {
-    console.log('_removeDie on App');
-    const diceArray = this.state.dice.splice(index, 1);
-    this.setState({ dice: diceArray });
+    const filteredArray = this.state.dice.filter((die, i, diceArray) => i !== index);
+    this.setState({ dice: filteredArray });
   }
 
   _toggleSound() {

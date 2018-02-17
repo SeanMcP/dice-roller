@@ -61,7 +61,6 @@ class Die extends Component {
   }
 
   _handleRemove() {
-    console.log('_handleRemove on Die');
     this.props.removeDie(this.props.index);
   }
 
