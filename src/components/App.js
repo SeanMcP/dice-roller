@@ -14,7 +14,13 @@ class App extends Component {
 
   componentDidMount() {
     if (this.state.dice.length === 0) {
-      this.setState({ dice: [ <Die key={this.state.dice.length + 1}/> ] });
+      this.setState({ dice: [
+        <Die
+          key={this.state.dice.length + 1}
+          index={this.state.dice.length + 1}
+          removeDie={this._removeDie.bind(this)}
+        />
+      ] });
     }
   }
   render() {
@@ -33,8 +39,20 @@ class App extends Component {
   }
 
   _addDie() {
-    let diceArray = this.state.dice || [];
-    diceArray.push(<Die key={diceArray.length + 1}/>)
+    const diceArray = this.state.dice || [];
+    diceArray.push(
+      <Die
+        key={diceArray.length + 1}
+        index={diceArray.length + 1}
+        removeDie={this._removeDie.bind(this)}
+      />
+    );
+    this.setState({ dice: diceArray });
+  }
+
+  _removeDie(index) {
+    console.log('_removeDie on App');
+    const diceArray = this.state.dice.splice(index, 1);
     this.setState({ dice: diceArray });
   }
 

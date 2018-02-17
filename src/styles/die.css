@@ -10,23 +10,64 @@
   border-radius: 5px;
   color: red;
   display: flex;
+  flex-flow: column;
   height: 100px;
   justify-content: center;
   margin: 10px;
+  position: relative;
   width: 100px;
+}
+
+.die.crit {
+  box-shadow: 0 0 40px gold;
+}
+
+.die.fail {
+  box-shadow: inset 0 0 40px red;
+}
+
+.die-screen {
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  left: 5px;
+  position: absolute;
+  top: 5px;
 }
 
 .die-button {
   width: 100%;
 }
 
+.die-label, .die-input {
+  font-size: 12px;
+}
+
 .die-input {
   background: none;
   border: 0;
   color: red;
-  font-size: 24px;
-  padding: 0;
-  padding-left: 17px;
-  text-align: center;
-  width: 83px;
+  padding: 0 0 1px 1px;
+  width: 65px;
+}
+
+.die-roll {
+  font-size: 36px;
+  font-weight: bold;
+  height: 50%;
+  width: 50%;
+}
+
+.die-message {
+  bottom: 10px;
+  font-weight: bold;
+  position: absolute;
+  text-transform: uppercase;
+}
+.die-message.crit {
+  color: green;
+}
+.die-message.fail {
+  color: red;
 }
