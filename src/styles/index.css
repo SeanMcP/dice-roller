@@ -1,3 +1,8 @@
+@import './app.css';
+@import './classes.css';
+@import './materialIcons.css';
+@import './navigation.css';
+
 body {
   background: black;
   margin: 0;

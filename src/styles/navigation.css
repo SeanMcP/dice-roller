@@ -1,0 +1,13 @@
+.nav-bar {
+  align-items: center;
+  background: gray;
+  bottom: 0;
+  color: white;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+}
+
+.nav-add-die {
+}
