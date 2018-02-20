@@ -4,8 +4,10 @@
 @import './materialIcons.css';
 @import './navigation.css';
 
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+
 body {
-  background: black;
+  background: #37474F;
   margin: 0;
   padding: 0;
   font-family: sans-serif;

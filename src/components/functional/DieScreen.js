@@ -11,15 +11,17 @@ const DieScreen = props => (
       //   <i className="material-icons">keyboard_arrow_down</i>
       // </div>
     }
-    <label className="die-label">D</label>
-    <input
-      name="die-input"
-      className="die-input"
-      type="number"
-      value={props.value}
-      onChange={props.handleInput}
-      min="2"
-    />
+    <div className="die-info">
+      <label className="die-label">D</label>
+      <input
+        name="die-input"
+        className="die-input"
+        type="number"
+        value={props.value}
+        onChange={props.handleInput}
+        min="2"
+      />
+    </div>
     <div
       className="die-remove click center"
       onClick={props.handleRemove}

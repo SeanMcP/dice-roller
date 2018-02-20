@@ -30,11 +30,11 @@ class Die extends Component {
           {this.state.roll || this.state.sides}
         </div>
         {
-          special
-            ? (
-              <div className={"die-message " + special}>{special}</div>
-            )
-            : null
+          // special
+          //   ? (
+          //     <div className={"die-message " + special}>{special}</div>
+          //   )
+          //   : null
         }
       </div>
     );

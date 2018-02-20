@@ -6,34 +6,48 @@
 
 .die {
   align-items: center;
-  background: yellow;
+  background: linear-gradient(#FFFFFF, #ECEFF1);
   border-radius: 5px;
-  color: red;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  color: #263238;
   display: flex;
   flex-flow: column;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
   height: 100px;
   justify-content: center;
   margin: 10px;
   position: relative;
+  transition: all 0.2s ease-in-out;
   width: 100px;
 }
 
+.die:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.75);
+}
+
+::selection {
+  background: #FFFFFF;
+  color: #263238;
+}
+
 .die.crit {
-  box-shadow: 0 0 40px gold;
+  /* box-shadow: 0 0 40px #FFFFFF; */
 }
 
 .die.fail {
-  box-shadow: inset 0 0 40px red;
+  /* box-shadow: inset 0 0 40px #607D8B; */
 }
 
 .die-screen {
   align-items: center;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
+  justify-content: space-between;
   left: 5px;
   position: absolute;
   top: 5px;
+  width: 95px;
 }
 
 .die-button {
@@ -47,15 +61,24 @@
 .die-input {
   background: none;
   border: 0;
-  color: red;
   padding: 0 0 1px 1px;
-  width: 65px;
+  width: 40px;
+}
+
+.die-remove {
+  color: #263238;
+  opacity: 0.25;
+  transition: all 0.2s ease-in-out;
+}
+.die-remove:hover {
+  opacity: 0.75;
 }
 
 .die-roll {
-  font-size: 36px;
+  font-size: 48px;
   font-weight: bold;
   height: 50%;
+  margin-top: 20px;
   width: 50%;
 }
 
@@ -65,9 +88,9 @@
   position: absolute;
   text-transform: uppercase;
 }
-.die-message.crit {
+/* .die-message.crit {
   color: green;
 }
 .die-message.fail {
   color: red;
-}
+} */
