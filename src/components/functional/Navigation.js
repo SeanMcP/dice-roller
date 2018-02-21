@@ -5,7 +5,7 @@ const Navigation = props => (
   <div className="nav-bar">
     <div
       className="nav-add-die click"
-      onClick={props.addDie}
+      onClick={() => props.addDie(20)}
     >
       <i className="material-icons md-48">&#xE147;</i>
     </div>

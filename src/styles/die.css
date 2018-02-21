@@ -27,16 +27,7 @@
 }
 
 ::selection {
-  background: #FFFFFF;
-  color: #263238;
-}
-
-.die.crit {
-  /* box-shadow: 0 0 40px #FFFFFF; */
-}
-
-.die.fail {
-  /* box-shadow: inset 0 0 40px #607D8B; */
+  background-color: transparent;
 }
 
 .die-screen {
@@ -88,9 +79,3 @@
   position: absolute;
   text-transform: uppercase;
 }
-/* .die-message.crit {
-  color: green;
-}
-.die-message.fail {
-  color: red;
-} */

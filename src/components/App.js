@@ -9,17 +9,19 @@ class App extends Component {
 
     this.state = {
       soundOn: false,
-      dice: ['initial'],
+      dice: [{ id: 'initial', sides: 20 }],
     };
 
     this._addDie = this._addDie.bind(this);
   }
   render() {
-    const diceArray = this.state.dice.map((uuid, index) => (
+    const diceArray = this.state.dice.map((die, index) => (
       <Die
-        key={uuid}
-        index={index}
+        key={die.id}
+        sides={die.sides}
+        dieId={die.id}
         removeDie={this._removeDie.bind(this)}
+        changeSides={this._changeSides.bind(this)}
       />
     ));
     return (
@@ -36,14 +38,25 @@ class App extends Component {
     );
   }
 
-  _addDie() {
+  _addDie(sides) {
     const diceArray = this.state.dice || [];
-    diceArray.push(uuid());
+    const newDie = {
+      id: uuid(),
+      sides,
+    };
+    diceArray.push(newDie);
     this.setState({ dice: diceArray });
   }
 
-  _removeDie(index) {
-    const filteredArray = this.state.dice.filter((die, i, diceArray) => i !== index);
+  _changeSides(id, sides) {
+    const diceArray = this.state.dice || [];
+    const index = diceArray.findIndex(die => die.id === id);
+    diceArray[index] = { id, sides };
+    this.setState({ dice: diceArray });
+  }
+
+  _removeDie(id) {
+    const filteredArray = this.state.dice.filter(die => die.id !== id);
     this.setState({ dice: filteredArray });
   }
 
