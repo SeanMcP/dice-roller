@@ -10,6 +10,7 @@ class App extends Component {
     this.state = {
       soundOn: false,
       dice: [{ id: 'initial', sides: 20 }],
+      menuOpen: false,
     };
 
     this._addDie = this._addDie.bind(this);
@@ -32,7 +33,9 @@ class App extends Component {
         <Navigation
           addDie={this._addDie.bind(this)}
           toggleSound={this._toggleSound.bind(this)}
+          toggleMenu={this._toggleMenu.bind(this)}
           soundOn={this.state.soundOn}
+          menuOpen={this.state.menuOpen}
         />
       </div>
     );
@@ -40,11 +43,13 @@ class App extends Component {
 
   _addDie(sides) {
     const diceArray = this.state.dice || [];
-    const newDie = {
-      id: uuid(),
-      sides,
-    };
-    diceArray.push(newDie);
+    sides.forEach(num => {
+      const newDie = {
+        id: uuid(),
+        sides: num,
+      };
+      diceArray.push(newDie);
+    })
     this.setState({ dice: diceArray });
   }
 
@@ -62,6 +67,10 @@ class App extends Component {
 
   _toggleSound() {
     this.setState({ soundOn: !this.state.soundOn });
+  }
+
+  _toggleMenu() {
+    this.setState({ menuOpen: !this.state.menuOpen });
   }
 }
 

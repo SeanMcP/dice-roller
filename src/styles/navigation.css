@@ -9,5 +9,39 @@
   width: 100%;
 }
 
+.nav-bar > div:hover {
+  color: #80D8FF;
+}
+
 .nav-add-die {
+}
+
+.create-menu {
+  background: white;
+  border-radius: 10px;
+  bottom: 35px;
+  display: flex;
+  flex-flow: column nowrap;
+  list-style: none;
+  padding: 0;
+  position: absolute;
+}
+
+.create-menu li {
+  color: gray;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.create-menu li:hover {
+  color: #039BE5;
+}
+
+.create-menu li:last-of-type {
+  border-bottom: 0;
+}
+
+.create-menu input {
+  font-size: 12px;
+  padding: 5px;
 }
