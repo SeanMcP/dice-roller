@@ -33,15 +33,31 @@
   border-bottom: 1px solid #ddd;
 }
 
-.create-menu li:hover {
+.create-menu li span:hover {
   color: #039BE5;
 }
 
 .create-menu li:last-of-type {
+  display: flex;
+  justify-content: space-between;
   border-bottom: 0;
 }
 
 .create-menu input {
-  font-size: 12px;
+  background: #eee;
+  border: 0;
+  font-size: 14px;
   padding: 5px;
+}
+
+.create-menu input[type="submit"] {
+  background: #039BE5;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  color: white;
+  padding: 5px 10px;
+}
+
+.create-menu input[type="submit"]:hover {
+  background: #03A9F4;
 }

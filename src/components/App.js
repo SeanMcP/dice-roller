@@ -14,6 +14,7 @@ class App extends Component {
     };
 
     this._addDie = this._addDie.bind(this);
+    this._setMenu = this._setMenu.bind(this);
   }
   render() {
     const diceArray = this.state.dice.map((die, index) => (
@@ -34,8 +35,10 @@ class App extends Component {
           addDie={this._addDie.bind(this)}
           toggleSound={this._toggleSound.bind(this)}
           toggleMenu={this._toggleMenu.bind(this)}
+          setMenu={this._setMenu.bind(this)}
           soundOn={this.state.soundOn}
           menuOpen={this.state.menuOpen}
+          clearDice={this._clearDice.bind(this)}
         />
       </div>
     );
@@ -65,12 +68,20 @@ class App extends Component {
     this.setState({ dice: filteredArray });
   }
 
+  _clearDice() {
+    this.setState({ dice: [] });
+  }
+
   _toggleSound() {
     this.setState({ soundOn: !this.state.soundOn });
   }
 
   _toggleMenu() {
     this.setState({ menuOpen: !this.state.menuOpen });
+  }
+
+  _setMenu(bool) {
+    this.setState({ menuOpen: bool });
   }
 }
 
