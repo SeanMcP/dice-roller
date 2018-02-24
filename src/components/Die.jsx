@@ -13,11 +13,14 @@ class Die extends Component {
     };
   }
   componentDidMount() {
-    if (this.state.sides !== this.props.die.sides) {
-      this.setState({ sides: this.props.die.sides });
+    const idCode = this.props.id.split('&');
+    const sides = Number(idCode[1]);
+    const style = idCode[2];
+    if (this.state.sides !== sides) {
+      this.setState({ sides });
     }
-    if (!this.state.style && !!this.props.die.style) {
-      this.setState({ style: this.props.die.style });
+    if (!this.state.style && !!style) {
+      this.setState({ style });
     }
     this.props.onRef(this)
   }
@@ -50,7 +53,7 @@ class Die extends Component {
           className="die-roll click center"
           onClick={this._handleRoll.bind(this)}
         >
-          {this.state.roll || this.state.sides || this.props.die.sides}
+          {this.state.roll || this.state.sides}
         </div>
       </div>
     );
@@ -65,19 +68,17 @@ class Die extends Component {
   _handleInput(event) {
     const newVal = Number(event.target.value);
     this.setState({ sides: newVal });
-    this.props.changeSides(this.props.die.id, newVal);
   }
 
   _handleRemove() {
-    this.props.removeDie(this.props.die.id);
+    this.props.removeDie(this.props.id);
   }
 
 };
 
 Die.propTypes = {
-  die: PropTypes.object.isRequired,
+  id: PropTypes.string.isRequired,
   removeDie: PropTypes.func.isRequired,
-  changeSides: PropTypes.func.isRequired,
 };
 
 export default Die;

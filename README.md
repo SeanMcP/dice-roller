@@ -12,8 +12,7 @@ A handy dandy dice roller for tabletop gaming
 - Custom die style
 
 ### To Do
-- Move die info (sides, style, and roll) to Die component
-- Figure out the menu's custom input functionality
+- Figure out the menu's custom create input functionality
 - Toggle menu when clicking off menu
 - Add non-audio feedback on die roll
 - Select die style

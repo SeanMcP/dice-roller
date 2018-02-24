@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 const CreateMenu = props => {
   const diceInfo = {
     dnd: [
-      { sides: 4 },
-      { sides: 6 },
-      { sides: 8 },
-      { sides: 10 },
-      { sides: 12 },
-      { sides: 20 },
-      { sides: 100 },
+      { sides: 4, style: 'dnd' },
+      { sides: 6, style: 'dnd' },
+      { sides: 8, style: 'dnd' },
+      { sides: 10, style: 'dnd' },
+      { sides: 12, style: 'dnd' },
+      { sides: 20, style: 'dnd' },
+      { sides: 100, style: 'dnd' },
     ],
     settlers: [
       { sides: 6, style: 'settlers-red' },

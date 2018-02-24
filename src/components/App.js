@@ -9,22 +9,20 @@ class App extends Component {
 
     this.state = {
       soundOn: false,
-      dice: [{ id: 'initial', sides: 20, style: "inverted" }],
+      dice: ['initial&20&inverted'],
       menuOpen: false,
     };
 
   }
   render() {
-    const diceArray = this.state.dice.map((die, i) => (
+    const diceArray = this.state.dice.map(id => (
       <Die
-        key={die.id}
-        die={die}
+        key={id}
+        id={id}
         removeDie={this._removeDie.bind(this)}
-        changeSides={this._changeSides.bind(this)}
-        onRef={ref => this[die.id] = ref}
+        onRef={ref => this[id] = ref}
       />
     ));
-    console.log('this.refs', this.refs);
     return (
       <div className="app-container">
         <div className="dice-container">
@@ -47,25 +45,13 @@ class App extends Component {
   _addDie(newDie) {
     const diceArray = this.state.dice || [];
     newDie.forEach(die => {
-      const newDie = {
-        id: uuid(),
-        sides: die.sides,
-        style: die.style || null,
-      };
-      diceArray.push(newDie);
+      diceArray.push(uuid() + '&' + die.sides + '&' + die.style);
     })
     this.setState({ dice: diceArray });
   }
 
-  _changeSides(id, sides) {
-    const diceArray = this.state.dice || [];
-    const index = diceArray.findIndex(die => die.id === id);
-    diceArray[index] = { id, sides };
-    this.setState({ dice: diceArray });
-  }
-
   _removeDie(id) {
-    const filteredArray = this.state.dice.filter(die => die.id !== id);
+    const filteredArray = this.state.dice.filter(storeId => storeId !== id);
     this.setState({ dice: filteredArray });
   }
 
@@ -86,8 +72,8 @@ class App extends Component {
   }
 
   _rollAll() {
-    this.state.dice.forEach((die, i) => {
-      this[die.id]._handleRoll();
+    this.state.dice.forEach(id => {
+      this[id]._handleRoll();
     })
   }
 }

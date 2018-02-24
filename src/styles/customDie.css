@@ -12,3 +12,8 @@
   background: #263238;
   color: #ECEFF1;
 }
+
+.die.dnd, .die.dnd .die-input {
+  background: #43A047;
+  color: #ECEFF1;
+}
