@@ -57,7 +57,6 @@
 }
 
 .die-remove {
-  color: #263238;
   opacity: 0.25;
   transition: all 0.2s ease-in-out;
 }

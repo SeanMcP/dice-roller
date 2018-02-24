@@ -26,6 +26,12 @@ const Navigation = props => (
       >add_circle</i>
     </div>
     <div
+      className="nav-roll click"
+      onClick={props.rollAll}
+    >
+      <i className="material-icons md-48">autorenew</i>
+    </div>
+    <div
       className="nav-toggle-sound click"
       onClick={props.toggleSound}
     >
@@ -44,6 +50,7 @@ const Navigation = props => (
 
 Navigation.propTypes = {
   addDie: PropTypes.func.isRequired,
+  rollAll: PropTypes.func.isRequired,
   toggleSound: PropTypes.func.isRequired,
   toggleMenu: PropTypes.func.isRequired,
   clearDice: PropTypes.func.isRequired,

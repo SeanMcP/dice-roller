@@ -9,16 +9,24 @@ class Die extends Component {
     this.state = {
       sides: 20,
       roll: null,
+      style: null,
     };
   }
   componentDidMount() {
-    if (this.state.sides !== this.props.sides) {
-      this.setState({ sides: this.props.sides });
+    if (this.state.sides !== this.props.die.sides) {
+      this.setState({ sides: this.props.die.sides });
     }
+    if (!this.state.style && !!this.props.die.style) {
+      this.setState({ style: this.props.die.style });
+    }
+    this.props.onRef(this)
+  }
+  componentWillUnmount() {
+    this.props.onRef(undefined)
   }
   render() {
     return (
-      <div className="die">
+      <div className={"die " + this.state.style}>
         <div className="die-screen">
           <div className="die-info">
             <label className="die-label">D</label>
@@ -42,7 +50,7 @@ class Die extends Component {
           className="die-roll click center"
           onClick={this._handleRoll.bind(this)}
         >
-          {this.state.roll || this.state.sides || this.props.sides}
+          {this.state.roll || this.state.sides || this.props.die.sides}
         </div>
       </div>
     );
@@ -54,27 +62,20 @@ class Die extends Component {
     this.setState({ roll });
   }
 
-  _handleChange(change) {
-    const newVal = this.state.sides + change;
-    this.setState({ sides: newVal });
-    this.props.changeSides(this.props.dieId, newVal);
-  }
-
   _handleInput(event) {
     const newVal = Number(event.target.value);
     this.setState({ sides: newVal });
-    this.props.changeSides(this.props.dieId, newVal);
+    this.props.changeSides(this.props.die.id, newVal);
   }
 
   _handleRemove() {
-    this.props.removeDie(this.props.dieId);
+    this.props.removeDie(this.props.die.id);
   }
 
 };
 
 Die.propTypes = {
-  sides: PropTypes.number.isRequired,
-  dieId: PropTypes.string.isRequired,
+  die: PropTypes.object.isRequired,
   removeDie: PropTypes.func.isRequired,
   changeSides: PropTypes.func.isRequired,
 };

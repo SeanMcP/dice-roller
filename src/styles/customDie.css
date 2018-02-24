@@ -1,0 +1,14 @@
+.die.settlers-red, .die.settlers-red .die-input {
+  background: #C62828;
+  color: #FDD835;
+}
+
+.die.settlers-yellow, .die.settlers-yellow .die-input {
+  background: #FDD835;
+  color: #C62828;
+}
+
+.die.inverted, .die.inverted .die-input {
+  background: #263238;
+  color: #ECEFF1;
+}

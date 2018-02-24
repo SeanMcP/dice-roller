@@ -9,23 +9,22 @@ class App extends Component {
 
     this.state = {
       soundOn: false,
-      dice: [{ id: 'initial', sides: 20 }],
+      dice: [{ id: 'initial', sides: 20, style: "inverted" }],
       menuOpen: false,
     };
 
-    this._addDie = this._addDie.bind(this);
-    this._setMenu = this._setMenu.bind(this);
   }
   render() {
-    const diceArray = this.state.dice.map((die, index) => (
+    const diceArray = this.state.dice.map((die, i) => (
       <Die
         key={die.id}
-        sides={die.sides}
-        dieId={die.id}
+        die={die}
         removeDie={this._removeDie.bind(this)}
         changeSides={this._changeSides.bind(this)}
+        onRef={ref => this[die.id] = ref}
       />
     ));
+    console.log('this.refs', this.refs);
     return (
       <div className="app-container">
         <div className="dice-container">
@@ -33,6 +32,7 @@ class App extends Component {
         </div>
         <Navigation
           addDie={this._addDie.bind(this)}
+          rollAll={this._rollAll.bind(this)}
           toggleSound={this._toggleSound.bind(this)}
           toggleMenu={this._toggleMenu.bind(this)}
           setMenu={this._setMenu.bind(this)}
@@ -44,12 +44,13 @@ class App extends Component {
     );
   }
 
-  _addDie(sides) {
+  _addDie(newDie) {
     const diceArray = this.state.dice || [];
-    sides.forEach(num => {
+    newDie.forEach(die => {
       const newDie = {
         id: uuid(),
-        sides: num,
+        sides: die.sides,
+        style: die.style || null,
       };
       diceArray.push(newDie);
     })
@@ -82,6 +83,12 @@ class App extends Component {
 
   _setMenu(bool) {
     this.setState({ menuOpen: bool });
+  }
+
+  _rollAll() {
+    this.state.dice.forEach((die, i) => {
+      this[die.id]._handleRoll();
+    })
   }
 }
 
