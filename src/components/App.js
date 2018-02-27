@@ -8,7 +8,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      soundOn: false,
+      soundOn: true,
       dice: ['initial&20&inverted'],
       menuOpen: false,
     };
