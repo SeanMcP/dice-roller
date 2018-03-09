@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CreateMenu from './CreateMenu';
+import CreateMenu from '../CreateMenu';
 
 const Navigation = props => (
   <div className="nav-bar">
