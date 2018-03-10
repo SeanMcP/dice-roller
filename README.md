@@ -9,11 +9,11 @@ A handy dandy dice roller for tabletop gaming
 - Create multiple dice at a time
 - Create popular sets with one click
 - Roll die individually or all at once
+- Finds the total (so you don't have to math!)
 - Select die style
 
 ### To Do
 - Add non-audio feedback on die roll
-- Sum roll function (and read out)
 - Add sound
 - Change naming convention for die styles
 - Add more die styles

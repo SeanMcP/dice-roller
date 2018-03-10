@@ -73,3 +73,21 @@
   position: fixed;
   width: 100%;
 }
+
+.total-panel {
+  background: #0091EA;
+  bottom: 52px;
+  color: white;
+  font-size: 36px;
+  padding: 10px;
+  position: absolute;
+	text-align: center;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+}
+.total-panel span {
+  font-weight: 700;
+}
+.total-panel.hide {
+  bottom: -20px;
+}

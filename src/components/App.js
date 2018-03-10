@@ -11,6 +11,8 @@ class App extends Component {
       soundOn: true,
       dice: ['initial&20&inverted'],
       menuOpen: false,
+      showTotal: false,
+      total: null,
     };
 
   }
@@ -28,12 +30,16 @@ class App extends Component {
         <div className="dice-container">
           {diceArray}
         </div>
+        <div className={"total-panel" + (this.state.showTotal ? "" : " hide")}>
+          Total: <span>{this.state.total}</span>
+        </div>
         <Navigation
           addOne={this._addOne.bind(this)}
           addMany={this._addMany.bind(this)}
           rollAll={this._rollAll.bind(this)}
           toggleSound={this._toggleSound.bind(this)}
           toggleMenu={this._toggleMenu.bind(this)}
+          toggleTotal={this._toggleTotal.bind(this)}
           setMenu={this._setMenu.bind(this)}
           soundOn={this.state.soundOn}
           menuOpen={this.state.menuOpen}
@@ -79,14 +85,21 @@ class App extends Component {
     this.setState({ menuOpen: !this.state.menuOpen });
   }
 
+  _toggleTotal() {
+    this.setState({ showTotal: !this.state.showTotal });
+  }
+
   _setMenu(bool) {
     this.setState({ menuOpen: bool });
   }
 
   _rollAll() {
+    let total = 0;
     this.state.dice.forEach(id => {
-      this[id]._handleRoll();
+      const roll = this[id]._handleRoll();
+      total += roll;
     })
+    this.setState({ total });
   }
 }
 

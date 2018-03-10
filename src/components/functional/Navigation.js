@@ -46,6 +46,12 @@ const Navigation = props => (
       </i>
     </div>
     <div
+      className="nav-show-total click"
+      onClick={props.toggleTotal}
+    >
+      <i className="material-icons md-48">add_to_photos</i>
+    </div>
+    <div
       className="nav-clear-dice click"
       onClick={props.clearDice}
     >

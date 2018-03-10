@@ -83,6 +83,7 @@ class Die extends Component {
     const sides = this.state.sides;
     const roll = randomRoll(sides);
     this.setState({ roll });
+    return roll;
   }
 
   _handleInput(event) {
