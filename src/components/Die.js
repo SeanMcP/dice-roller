@@ -9,7 +9,7 @@ class Die extends Component {
     this.state = {
       sides: 20,
       roll: null,
-      style: null,
+      style: "",
     };
   }
   componentDidMount() {
@@ -55,6 +55,16 @@ class Die extends Component {
         >
           {this.state.roll || this.state.sides}
         </div>
+        <select
+          onChange={this._handleSelect.bind(this)}
+          value={this.state.style}
+        >
+          <option value="">Classic</option>
+          <option value="inverted">Inverted</option>
+          <option value="dnd">D&D</option>
+          <option value="settlers-red">Settlers red</option>
+          <option value="settlers-yellow">Settlers yellow</option>
+        </select>
       </div>
     );
   }
@@ -72,6 +82,10 @@ class Die extends Component {
 
   _handleRemove() {
     this.props.removeDie(this.props.id);
+  }
+
+  _handleSelect(event) {
+    this.setState({ style: event.target.value });
   }
 
 };

@@ -4,13 +4,18 @@
   justify-content: center;
 }
 
-.die {
+.die,
+.die-screen {
   align-items: center;
+  display: flex;
+  transition: all 0.2 ease-in-out;
+}
+
+.die {
   background: linear-gradient(#FFFFFF, #ECEFF1);
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   color: #263238;
-  display: flex;
   flex-flow: column;
   font-family: 'Nunito', sans-serif;
   font-weight: 700;
@@ -18,7 +23,6 @@
   justify-content: center;
   margin: 10px;
   position: relative;
-  transition: all 0.2s ease-in-out;
   width: 100px;
 }
 
@@ -31,8 +35,6 @@
 }
 
 .die-screen {
-  align-items: center;
-  display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   left: 5px;
