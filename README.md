@@ -12,8 +12,6 @@ A handy dandy dice roller for tabletop gaming
 - Custom die style
 
 ### To Do
-- Figure out the menu's custom create input functionality
-- Toggle menu when clicking off menu
 - Add non-audio feedback on die roll
 - Select die style
 - Sum roll function (and read out)
