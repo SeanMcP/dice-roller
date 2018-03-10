@@ -15,6 +15,8 @@ A handy dandy dice roller for tabletop gaming
 - Add non-audio feedback on die roll
 - Sum roll function (and read out)
 - Add sound
+- Change naming convention for die styles
+- Add more die styles
 
 ### Considerations
 - Die components need to receive side and style information once. After that point, the data should be stored in Die state.

@@ -29,8 +29,8 @@ class CreateMenu extends Component {
         { sides: 6 },
       ]
     };
-    const addDie = this.props.addDie;
-    const wrap = (sides) => [{ sides }];
+    const addOne = this.props.addOne;
+    const addMany = this.props.addMany;
     return (
       <div className="overlay" onClick={this.props.toggleMenu}>
         <ul className="create-menu">
@@ -47,21 +47,21 @@ class CreateMenu extends Component {
                 value="Create"
               />
           </li>
-          <li onClick={() => addDie(diceInfo.dnd)}>
+          <li onClick={() => addMany(diceInfo.dnd)}>
             <span>D&D set</span>
           </li>
-          <li onClick={() => addDie(diceInfo.settlers)}>
+          <li onClick={() => addMany(diceInfo.settlers)}>
             <span>Settlers</span>
           </li>
-          <li onClick={() => addDie(diceInfo.yahtzee)}>
+          <li onClick={() => addMany(diceInfo.yahtzee)}>
             <span>Yahtzee</span>
           </li>
           <li>
-            <span onClick={() => addDie(wrap(6))}>D6</span>
-            <span onClick={() => addDie(wrap(10))}>D10</span>
-            <span onClick={() => addDie(wrap(12))}>D12</span>
-            <span onClick={() => addDie(wrap(20))}>D20</span>
-            <span onClick={() => addDie(wrap(100))}>D100</span>
+            <span onClick={() => addOne(6)}>D6</span>
+            <span onClick={() => addOne(10)}>D10</span>
+            <span onClick={() => addOne(12)}>D12</span>
+            <span onClick={() => addOne(20)}>D20</span>
+            <span onClick={() => addOne(100)}>D100</span>
           </li>
         </ul>
       </div>
@@ -74,13 +74,13 @@ class CreateMenu extends Component {
   }
 
   _handleCreate() {
-    this.props.addDie([{ sides: this.state.newDie }]);
+    this.props.addOne([{ sides: this.state.newDie }]);
     this.setState({ newDie: '' });
   }
 };
 
 CreateMenu.propTypes = {
-  addDie: PropTypes.func.isRequired,
+  addOne: PropTypes.func.isRequired,
   toggleMenu: PropTypes.func.isRequired
 };
 

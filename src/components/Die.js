@@ -10,7 +10,7 @@ class Die extends Component {
     this.state = {
       sides: 20,
       roll: null,
-      style: "",
+      style: "classic",
       showStyleMenu: false
     };
 
@@ -23,7 +23,7 @@ class Die extends Component {
     if (this.state.sides !== sides) {
       this.setState({ sides });
     }
-    if (!this.state.style && !!style) {
+    if (this.state.style !== style) {
       this.setState({ style });
     }
     this.props.onRef(this)

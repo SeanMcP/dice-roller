@@ -29,7 +29,8 @@ class App extends Component {
           {diceArray}
         </div>
         <Navigation
-          addDie={this._addDie.bind(this)}
+          addOne={this._addOne.bind(this)}
+          addMany={this._addMany.bind(this)}
           rollAll={this._rollAll.bind(this)}
           toggleSound={this._toggleSound.bind(this)}
           toggleMenu={this._toggleMenu.bind(this)}
@@ -42,12 +43,23 @@ class App extends Component {
     );
   }
 
-  _addDie(newDie) {
-    const diceArray = this.state.dice || [];
-    newDie.forEach(die => {
-      diceArray.push(uuid() + '&' + die.sides + '&' + die.style);
+  _addOne(die) {
+    const output = this.state.dice || [];
+    if (typeof die === 'object') {
+      output.push(uuid() + '&' + die.sides + '&' + (die.style ? die.style : 'classic'));
+    }
+    if (typeof die === 'number') {
+      output.push(uuid() + '&' + die + '&classic');
+    }
+    this.setState({ dice: output });
+  }
+
+  _addMany(diceArray) {
+    const output = [];
+    diceArray.forEach(die => {
+      output.push(uuid() + '&' + die.sides + '&' + (die.style ? die.style : 'classic'));
     })
-    this.setState({ dice: diceArray });
+    this.setState({ dice: output });
   }
 
   _removeDie(id) {

@@ -11,9 +11,15 @@ const Navigation = props => (
         props.menuOpen
         ? (
           <CreateMenu
-            addDie={
+            addOne={
+              (obj) => {
+                props.addOne(obj);
+                props.toggleMenu();
+              }
+            }
+            addMany={
               (arr) => {
-                props.addDie(arr);
+                props.addMany(arr);
                 props.toggleMenu();
               }
             }
@@ -49,7 +55,8 @@ const Navigation = props => (
 );
 
 Navigation.propTypes = {
-  addDie: PropTypes.func.isRequired,
+  addOne: PropTypes.func.isRequired,
+  addMany: PropTypes.func.isRequired,
   rollAll: PropTypes.func.isRequired,
   toggleSound: PropTypes.func.isRequired,
   toggleMenu: PropTypes.func.isRequired,
