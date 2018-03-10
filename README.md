@@ -9,7 +9,7 @@ A handy dandy dice roller for tabletop gaming
 - Create multiple dice at a time
 - Create popular sets with one click
 - Roll die individually or all at once
-- Finds the total (so you don't have to math!)
+- Find the total (so you don't have to math!)
 - Select die style
 
 ### To Do
