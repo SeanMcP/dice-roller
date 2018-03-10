@@ -81,6 +81,7 @@ class CreateMenu extends Component {
 
 CreateMenu.propTypes = {
   addDie: PropTypes.func.isRequired,
+  toggleMenu: PropTypes.func.isRequired
 };
 
 export default CreateMenu;
