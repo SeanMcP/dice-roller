@@ -1,9 +1,10 @@
 @import './app.css';
 @import './classes.css';
 @import './die.css';
-@import './customDie.css';
 @import './materialIcons.css';
 @import './navigation.css';
+@import './styleMenu.css';
+@import './customDie.css';
 
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 

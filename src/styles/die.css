@@ -58,19 +58,25 @@
   width: 40px;
 }
 
-.die-remove {
+.die-remove, .die-style {
   opacity: 0.25;
   transition: all 0.2s ease-in-out;
 }
-.die-remove:hover {
+.die-remove:hover, .die-style:hover {
   opacity: 0.75;
+}
+
+.die-style {
+  bottom: 2px;
+  position: absolute;
+  right: 2px;
 }
 
 .die-roll {
   font-size: 48px;
   font-weight: bold;
   height: 50%;
-  margin-top: 20px;
+  margin-top: 10px;
   width: 50%;
 }
 

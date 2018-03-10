@@ -1,24 +1,24 @@
-.die.settlers-red, .die.settlers-red .die-input {
+.die.settlers-red, .die.settlers-red .die-input, .settlers-red {
   background: #C62828;
   color: #FDD835;
 }
 
-.die.settlers-yellow, .die.settlers-yellow .die-input {
+.die.settlers-yellow, .die.settlers-yellow .die-input, .settlers-yellow {
   background: #FDD835;
   color: #C62828;
 }
 
-.die.inverted, .die.inverted .die-input {
+.die.inverted, .die.inverted .die-input, .inverted {
   background: #263238;
   color: #ECEFF1;
 }
 
-.die.classic, .die.classic .die-input {
+.die.classic, .die.classic .die-input, .classic {
   background: #ECEFF1;
   color: #263238;
 }
 
-.die.dnd, .die.dnd .die-input {
+.die.dnd, .die.dnd .die-input, .dnd {
   background: #43A047;
   color: #ECEFF1;
 }
