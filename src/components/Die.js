@@ -11,7 +11,8 @@ class Die extends Component {
       sides: 20,
       roll: null,
       style: "classic",
-      showStyleMenu: false
+      showStyleMenu: false,
+      isRolling: false
     };
 
     this._toggleStyleMenu = this._toggleStyleMenu.bind(this);
@@ -44,6 +45,7 @@ class Die extends Component {
               value={this.state.sides}
               onChange={this._handleInput.bind(this)}
               min="2"
+              max="999"
             />
           </div>
           <div
@@ -54,7 +56,7 @@ class Die extends Component {
           </div>
         </div>
         <div
-          className="die-roll click center"
+          className={"die-roll click center"  + (this.state.isRolling ? " rolling" : "")}
           onClick={this._handleRoll.bind(this)}
         >
           {this.state.roll || this.state.sides}
@@ -82,7 +84,8 @@ class Die extends Component {
   _handleRoll() {
     const sides = this.state.sides;
     const roll = randomRoll(sides);
-    this.setState({ roll });
+    this.setState({ roll, isRolling: true });
+    setTimeout(() => this.setState({ isRolling: false }), 100);
     return roll;
   }
 

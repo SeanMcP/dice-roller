@@ -13,7 +13,6 @@ A handy dandy dice roller for tabletop gaming
 - Select die style
 
 ### To Do
-- Add non-audio feedback on die roll
 - Add sound
 - Change naming convention for die styles
 - Add more die styles
@@ -22,4 +21,4 @@ A handy dandy dice roller for tabletop gaming
 - Die components need to receive side and style information once. After that point, the data should be stored in Die state.
 
 ### Bugs
-- \*crickets\*
+- The custom side input on the Die component allows your to input a number that is too high or too low. Write a check on the handle change function to prevent inproper input.
