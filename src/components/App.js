@@ -14,9 +14,7 @@ class App extends Component {
       soundOn: true,
       dice: ['initial&20&inverted'],
       modal: 'none',
-      menuOpen: false,
-      settingsOpen: false,
-      showTotal: false,
+      showTotal: true,
       total: null,
     };
 
@@ -38,17 +36,19 @@ class App extends Component {
         <div className={"total-panel" + (this.state.showTotal ? "" : " hide")}>
           Total: <span>{this.state.total}</span>
         </div>
+        <div
+          className={"sound-indicator" + (this.state.soundOn ? "" : " hide")}
+          onClick={this._toggleSound.bind(this)}
+        >
+          <i className="material-icons md-24">
+            {this.state.soundOn ? 'volume_up' : 'volume_off'}
+          </i>
+        </div>
         <Navigation
-          addOne={this._addOne.bind(this)}
           addMany={this._addMany.bind(this)}
+          addOne={this._addOne.bind(this)}
           rollAll={this._rollAll.bind(this)}
-          toggleMenu={this._toggleMenu.bind(this)}
-          toggleSettings={this._toggleSettings.bind(this)}
-          setMenu={this._setMenu.bind(this)}
           setModal={this._setModal.bind(this)}
-          soundOn={this.state.soundOn}
-          menuOpen={this.state.menuOpen}
-          settingsOpen={this.state.settingsOpen}
         />
         <Modal
           modalState={this.state.modal}
@@ -68,7 +68,7 @@ class App extends Component {
     if (typeof die === 'number') {
       output.push(uuid() + '&' + die + '&classic');
     }
-    this.setState({ dice: output });
+    this.setState({ dice: output, modal: 'none' });
   }
 
   _addMany(diceArray) {
@@ -76,36 +76,28 @@ class App extends Component {
     diceArray.forEach(die => {
       output.push(uuid() + '&' + die.sides + '&' + (die.style ? die.style : 'classic'));
     })
-    this.setState({ dice: output });
+    this.setState({ dice: output, modal: 'none' });
   }
 
   _removeDie(id) {
     const filteredArray = this.state.dice.filter(storeId => storeId !== id);
-    this.setState({ dice: filteredArray });
+    this.setState({ dice: filteredArray, modal: 'none' });
   }
 
   _clearDice() {
-    this.setState({ dice: [] });
+    this.setState({ dice: [], modal: 'none' });
   }
 
   _toggleSound() {
-    this.setState({ soundOn: !this.state.soundOn });
-  }
-
-  _toggleMenu() {
-    this.setState({ menuOpen: !this.state.menuOpen });
+    this.setState({ soundOn: !this.state.soundOn, modal: 'none' });
   }
 
   _setModal(string) {
     this.setState({ modal: string });
   }
 
-  _toggleSettings(prevState) {
-    this.setState({ settingsOpen: !prevState.settingsOpen });
-  }
-
   _toggleTotal() {
-    this.setState({ showTotal: !this.state.showTotal });
+    this.setState({ showTotal: !this.state.showTotal, modal: 'none' });
   }
 
   _renderModalContent() {

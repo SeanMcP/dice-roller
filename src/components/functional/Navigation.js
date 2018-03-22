@@ -25,13 +25,10 @@ const Navigation = props => (
 );
 
 Navigation.propTypes = {
-  addOne: PropTypes.func.isRequired,
   addMany: PropTypes.func.isRequired,
+  addOne: PropTypes.func.isRequired,
   rollAll: PropTypes.func.isRequired,
   setModal: PropTypes.func.isRequired,
-  soundOn: PropTypes.bool.isRequired,
-  toggleMenu: PropTypes.func.isRequired,
-  toggleSettings: PropTypes.func.isRequired,
 };
 
 export default Navigation;

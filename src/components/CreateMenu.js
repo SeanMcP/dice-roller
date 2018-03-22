@@ -50,17 +50,20 @@ class CreateMenu extends Component {
         <li
           className="button"  
           onClick={() => addMany(diceInfo.dnd)}>
-          D&D set
+            <span role="img" aria-label="sword">⚔️</span>
+            D&D set
         </li>
         <li
           className="button"  
           onClick={() => addMany(diceInfo.settlers)}>
-          Settlers
+            <span role="img" aria-label="sheep">🐑</span>
+            Settlers
         </li>
         <li
           className="button"  
           onClick={() => addMany(diceInfo.yahtzee)}>
-          Yahtzee
+            <span role="img" aria-label="person raising arm">🙋</span>
+            Yahtzee
         </li>
         <li>
           <span onClick={() => addOne(6)}>D6</span>
@@ -81,12 +84,14 @@ class CreateMenu extends Component {
   _handleCreate() {
     this.props.addOne({ sides: Number(this.state.newDie) });
     this.setState({ newDie: '' });
+    this.props.setModal('none');
   }
 };
 
 CreateMenu.propTypes = {
-  addOne: PropTypes.func.isRequired,
   addMany: PropTypes.func.isRequired,
+  addOne: PropTypes.func.isRequired,
+  setModal: PropTypes.func.isRequired,
 };
 
 export default CreateMenu;

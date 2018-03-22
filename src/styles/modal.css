@@ -84,3 +84,7 @@
 .modal-menu.create input[type="submit"]:hover {
   background: #03A9F4;
 }
+
+span[role="img"] {
+	margin-right: 5px;
+}

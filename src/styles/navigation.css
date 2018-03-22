@@ -30,3 +30,23 @@
 .total-panel.hide {
   bottom: -20px;
 }
+
+.sound-indicator {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 40px;
+  bottom: 70px;
+  color: white;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  position: absolute;
+  right: 10px;
+  transition: all 0.2s ease-in-out;
+  width: 40px;
+  z-index: 0;
+}
+
+.sound-indicator.hide {
+  right: -50px;
+}

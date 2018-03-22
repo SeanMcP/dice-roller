@@ -5,9 +5,14 @@ const Modal = props => {
     if (props.modalState === 'none') {
         return null;
     }
+    const { children } = props;
+
+    const childrenWithProps = React.Children.map(children, child =>
+        React.cloneElement(child, { ...props })
+    );
     return (
         <div className="modal-container">
-            {props.children}
+            {childrenWithProps}
             <div className="modal-overlay" onClick={() => props.setModal('none')}/>
         </div>
     )
