@@ -1,0 +1,86 @@
+.modal-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-overlay {
+    background: rgba(0, 0, 0, 0.4);
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.modal-menu {
+  background: white;
+  border-radius: 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  list-style: none;
+  padding: 0;
+  z-index: 1;
+}
+
+.modal-menu li {
+    color: gray;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.modal-menu li.button {
+    align-items: center;
+    display: flex;
+}
+
+.modal-menu li span,
+.modal-menu li.button {
+    cursor: pointer;
+}
+
+.modal-menu li.button:hover,
+.modal-menu li span:hover {
+    color: #039BE5;
+}
+
+.modal-menu li.button i {
+    margin-right: 5px;
+}
+
+.modal-menu li:last-of-type {
+    border-color: transparent;
+}
+
+.modal-menu li.heading {
+    align-items: center;
+    display: flex;
+    font-size: 150%;
+    font-weight: bold;
+    justify-content: space-between;
+}
+
+.modal-menu.create li:last-of-type {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0;
+}
+
+.modal-menu.create input {
+  background: #eee;
+  border: 0;
+  font-size: 14px;
+  padding: 5px;
+}
+
+.modal-menu.create input[type="submit"] {
+  background: #039BE5;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  color: white;
+  padding: 5px 10px;
+}
+
+.modal-menu.create input[type="submit"]:hover {
+  background: #03A9F4;
+}

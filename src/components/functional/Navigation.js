@@ -1,34 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CreateMenu from '../CreateMenu';
 
 const Navigation = props => (
   <div className="nav-bar">
     <div
       className="nav-add-die click"
     >
-      {
-        props.menuOpen
-        ? (
-          <CreateMenu
-            addOne={
-              (obj) => {
-                props.addOne(obj);
-                props.toggleMenu();
-              }
-            }
-            addMany={
-              (arr) => {
-                props.addMany(arr);
-                props.toggleMenu();
-              }
-            }
-            toggleMenu={props.toggleMenu}
-          />
-        ) : null
-      }
       <i className="material-icons md-48"
-        onClick={props.toggleMenu}
+        onClick={() => props.setModal('create')}
       >add_circle</i>
     </div>
     <div
@@ -38,24 +17,9 @@ const Navigation = props => (
       <i className="material-icons md-48">autorenew</i>
     </div>
     <div
-      className="nav-toggle-sound click"
-      onClick={props.toggleSound}
+      className="nav-settings click"
     >
-      <i className="material-icons md-48">
-        { props.soundOn ? 'volume_off' : 'volume_up'}
-      </i>
-    </div>
-    <div
-      className="nav-show-total click"
-      onClick={props.toggleTotal}
-    >
-      <i className="material-icons md-48">add_to_photos</i>
-    </div>
-    <div
-      className="nav-clear-dice click"
-      onClick={props.clearDice}
-    >
-      <i className="material-icons md-48">clear_all</i>
+      <i className="material-icons md-48" onClick={() => props.setModal('settings')}>settings</i>
     </div>
   </div>
 );
@@ -64,10 +28,10 @@ Navigation.propTypes = {
   addOne: PropTypes.func.isRequired,
   addMany: PropTypes.func.isRequired,
   rollAll: PropTypes.func.isRequired,
-  toggleSound: PropTypes.func.isRequired,
-  toggleMenu: PropTypes.func.isRequired,
-  clearDice: PropTypes.func.isRequired,
+  setModal: PropTypes.func.isRequired,
   soundOn: PropTypes.bool.isRequired,
+  toggleMenu: PropTypes.func.isRequired,
+  toggleSettings: PropTypes.func.isRequired,
 };
 
 export default Navigation;

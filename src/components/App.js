@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import uuid from 'uuid/v4';
 import Die from './Die';
 import Navigation from './functional/Navigation';
+import Modal from './functional/Modal';
+import SettingsMenu from './functional/SettingsMenu';
+import CreateMenu from './CreateMenu';
 
 class App extends Component {
   constructor(props) {
@@ -10,7 +13,9 @@ class App extends Component {
     this.state = {
       soundOn: true,
       dice: ['initial&20&inverted'],
+      modal: 'none',
       menuOpen: false,
+      settingsOpen: false,
       showTotal: false,
       total: null,
     };
@@ -37,14 +42,20 @@ class App extends Component {
           addOne={this._addOne.bind(this)}
           addMany={this._addMany.bind(this)}
           rollAll={this._rollAll.bind(this)}
-          toggleSound={this._toggleSound.bind(this)}
           toggleMenu={this._toggleMenu.bind(this)}
-          toggleTotal={this._toggleTotal.bind(this)}
+          toggleSettings={this._toggleSettings.bind(this)}
           setMenu={this._setMenu.bind(this)}
+          setModal={this._setModal.bind(this)}
           soundOn={this.state.soundOn}
           menuOpen={this.state.menuOpen}
-          clearDice={this._clearDice.bind(this)}
+          settingsOpen={this.state.settingsOpen}
         />
+        <Modal
+          modalState={this.state.modal}
+          setModal={this._setModal.bind(this)}
+        >
+          {this._renderModalContent()}
+        </Modal>
       </div>
     );
   }
@@ -85,8 +96,36 @@ class App extends Component {
     this.setState({ menuOpen: !this.state.menuOpen });
   }
 
+  _setModal(string) {
+    this.setState({ modal: string });
+  }
+
+  _toggleSettings(prevState) {
+    this.setState({ settingsOpen: !prevState.settingsOpen });
+  }
+
   _toggleTotal() {
     this.setState({ showTotal: !this.state.showTotal });
+  }
+
+  _renderModalContent() {
+    const hash = {
+      settings: (
+        <SettingsMenu
+          clearDice={this._clearDice.bind(this)}
+          toggleSound={this._toggleSound.bind(this)}
+          toggleTotal={this._toggleTotal.bind(this)}
+        />
+      ),
+      create: (
+        <CreateMenu
+          addOne={this._addOne.bind(this)}
+          addMany={this._addMany.bind(this)}
+        />
+      )
+    }
+
+    return hash[this.state.modal];
   }
 
   _setMenu(bool) {
