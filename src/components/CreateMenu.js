@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Emoji from './functional/Emoji';
 
 class CreateMenu extends Component {
   constructor(props) {
@@ -50,19 +51,19 @@ class CreateMenu extends Component {
         <li
           className="button"  
           onClick={() => addMany(diceInfo.dnd)}>
-            <span role="img" aria-label="sword">⚔️</span>
+            <Emoji label="swords" symbol="⚔️"/>
             D&D set
         </li>
         <li
           className="button"  
           onClick={() => addMany(diceInfo.settlers)}>
-            <span role="img" aria-label="sheep">🐑</span>
+            <Emoji label="sheep" symbol="🐑" />
             Settlers
         </li>
         <li
           className="button"  
           onClick={() => addMany(diceInfo.yahtzee)}>
-            <span role="img" aria-label="person raising arm">🙋</span>
+            <Emoji symbol="🙋" />
             Yahtzee
         </li>
         <li>
@@ -91,7 +92,6 @@ class CreateMenu extends Component {
 CreateMenu.propTypes = {
   addMany: PropTypes.func.isRequired,
   addOne: PropTypes.func.isRequired,
-  setModal: PropTypes.func.isRequired,
 };
 
 export default CreateMenu;

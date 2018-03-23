@@ -26,6 +26,7 @@ class App extends Component {
         id={id}
         removeDie={this._removeDie.bind(this)}
         onRef={ref => this[id] = ref}
+        playSound={this._playSound.bind(this)}
       />
     ));
     return (
@@ -56,6 +57,7 @@ class App extends Component {
         >
           {this._renderModalContent()}
         </Modal>
+        <audio ref={ref => this.audio = ref} src="./audio/roll.wav"/>
       </div>
     );
   }
@@ -131,6 +133,13 @@ class App extends Component {
       total += roll;
     })
     this.setState({ total });
+    this._playSound();
+  }
+
+  _playSound() {
+    if (this.state.soundOn) {
+      this.audio.play();
+    }
   }
 }
 

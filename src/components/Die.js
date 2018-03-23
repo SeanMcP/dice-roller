@@ -86,6 +86,7 @@ class Die extends Component {
     const roll = randomRoll(sides);
     this.setState({ roll, isRolling: true });
     setTimeout(() => this.setState({ isRolling: false }), 100);
+    this.props.playSound();
     return roll;
   }
 
@@ -112,6 +113,7 @@ class Die extends Component {
 Die.propTypes = {
   id: PropTypes.string.isRequired,
   removeDie: PropTypes.func.isRequired,
+  playSound: PropTypes.func.isRequired,
 };
 
 export default Die;

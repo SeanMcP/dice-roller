@@ -4,18 +4,36 @@
   bottom: 0;
   color: white;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 10px 0 5px;
   position: absolute;
   width: 100%;
+}
+
+.nav-bar,
+.total-panel {
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.25);  
 }
 
 .nav-bar > div:hover {
   color: #80D8FF;
 }
 
+.nav-create {
+  margin-left: 10px;
+}
+.nav-settings {
+  margin-right: 10px;
+}
+
+.nav-roll {
+  font-size: 48px;
+  font-weight: bold;
+}
+
 .total-panel {
   background: #0091EA;
-  bottom: 52px;
+  bottom: 80px;
   color: white;
   font-size: 36px;
   padding: 10px;
@@ -34,16 +52,16 @@
 .sound-indicator {
   align-items: center;
   background: rgba(0, 0, 0, 0.2);
-  border-radius: 40px;
-  bottom: 70px;
+  border-radius: 48px;
+  bottom: 91px;
   color: white;
   display: flex;
-  height: 40px;
+  height: 48px;
   justify-content: center;
   position: absolute;
   right: 10px;
   transition: all 0.2s ease-in-out;
-  width: 40px;
+  width: 48px;
   z-index: 0;
 }
 

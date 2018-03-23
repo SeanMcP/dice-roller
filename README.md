@@ -10,10 +10,13 @@ A handy dandy dice roller for tabletop gaming
 - Create popular sets with one click
 - Roll die individually or all at once
 - Find the total (so you don't have to math!)
+- Hear the authentic sound of a real die roll (or not)
 - Select die style
 
 ### To Do
-- Add sound
+- Update manifest.json
+- Update index.html
+- Create favicon.ico
 - Change naming convention for die styles
 - Add more die styles
 

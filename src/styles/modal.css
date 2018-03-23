@@ -19,7 +19,9 @@
   display: flex;
   flex-flow: column nowrap;
   list-style: none;
+  max-width: 250px;
   padding: 0;
+  width: 100%;
   z-index: 1;
 }
 
@@ -58,6 +60,10 @@
     font-size: 150%;
     font-weight: bold;
     justify-content: space-between;
+}
+
+.modal-menu li.heading i {
+    opacity: 0.5;
 }
 
 .modal-menu.create li:last-of-type {

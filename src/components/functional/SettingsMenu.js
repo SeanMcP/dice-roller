@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Emoji from './Emoji';
 
 const SettingsMenu = props => (
     <ul className="modal-menu settings">
@@ -28,7 +29,7 @@ const SettingsMenu = props => (
             Remove all dice
         </li>
         <li>Project repository on <a href="https://github.com/seanmcp/dice-roller">GitHub</a></li>
-        <li>Made with love by <a href="https://github.com/seanmcp">SeanMcP</a></li>
+        <li>Made with <Emoji label="love" symbol="❤️"/> by <a href="https://github.com/seanmcp">SeanMcP</a></li>
     </ul>
 );
 

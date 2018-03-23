@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Navigation = props => (
   <div className="nav-bar">
     <div
-      className="nav-add-die click"
+      className="nav-create click"
     >
       <i className="material-icons md-48"
         onClick={() => props.setModal('create')}
@@ -14,7 +14,7 @@ const Navigation = props => (
       className="nav-roll click"
       onClick={props.rollAll}
     >
-      <i className="material-icons md-48">autorenew</i>
+      Roll
     </div>
     <div
       className="nav-settings click"
