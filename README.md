@@ -14,11 +14,12 @@ A handy dandy dice roller for tabletop gaming
 - Select die style
 
 ### To Do
-- Update manifest.json
-- Update index.html
 - Create favicon.ico
 - Change naming convention for die styles
 - Add more die styles
+- Add tests
+- Clean up components (App, CreateMenu, Die, Emoji, If, Modal, Navigation, SettingsMenu, StyleMenu, StyleOption)
+- Fix bugs
 
 ### Considerations
 - Die components need to receive side and style information once. After that point, the data should be stored in Die state.
