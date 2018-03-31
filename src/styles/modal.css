@@ -91,6 +91,6 @@
   background: #03A9F4;
 }
 
-span[role="img"] {
+.emoji.li {
 	margin-right: 5px;
 }

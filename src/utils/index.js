@@ -1,3 +1,6 @@
 export const randomRoll = (sides) => {
-  return Math.floor(Math.random() * sides + 1);
+  if (Number(sides) === 0) {
+    return 0;
+  }
+  return Math.floor(Math.random() * Number(sides) + 1);
 }

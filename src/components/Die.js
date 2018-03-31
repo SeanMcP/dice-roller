@@ -15,6 +15,10 @@ class Die extends Component {
       isRolling: false
     };
 
+    this._handleInput = this._handleInput.bind(this);
+    this._handleRemove = this._handleRemove.bind(this);
+    this._handleRoll = this._handleRoll.bind(this);
+    this._handleSelect = this._handleSelect.bind(this);
     this._toggleStyleMenu = this._toggleStyleMenu.bind(this);
   }
   componentDidMount() {
@@ -43,27 +47,25 @@ class Die extends Component {
               className="die-input"
               type="number"
               value={this.state.sides}
-              onChange={this._handleInput.bind(this)}
-              min="2"
-              max="999"
+              onChange={this._handleInput}
             />
           </div>
           <div
             className="die-remove click center"
-            onClick={this._handleRemove.bind(this)}
+            onClick={this._handleRemove}
           >
             <i className="material-icons">close</i>
           </div>
         </div>
         <div
           className={"die-roll click center"  + (this.state.isRolling ? " rolling" : "")}
-          onClick={this._handleRoll.bind(this)}
+          onClick={this._handleRoll}
         >
           {this.state.roll || this.state.sides}
         </div>
         <div
           className="die-style click center"
-          onClick={this._toggleStyleMenu.bind(this)}
+          onClick={this._toggleStyleMenu}
         >
           <i className="material-icons">color_lens</i>
         </div>
@@ -71,11 +73,10 @@ class Die extends Component {
           this.state.showStyleMenu
           ? (
             <StyleMenu
-            handleSelect={this._handleSelect.bind(this)}
-            toggleStyleMenu={this._toggleStyleMenu}
+              handleSelect={this._handleSelect}
+              toggleStyleMenu={this._toggleStyleMenu}
             />
-          )
-          : null
+          ) : null
         }
       </div>
     );
@@ -91,7 +92,12 @@ class Die extends Component {
   }
 
   _handleInput(event) {
-    const newVal = Number(event.target.value);
+    let newVal = event.target.value.replace(/^[0]+/g, '');
+    if (newVal.includes('-')) {
+      newVal = 1;
+    } else if (newVal > 999) {
+      newVal = 999;
+    }
     this.setState({ sides: newVal });
   }
 

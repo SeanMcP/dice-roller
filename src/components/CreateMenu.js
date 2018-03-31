@@ -51,19 +51,19 @@ class CreateMenu extends Component {
         <li
           className="button"  
           onClick={() => addMany(diceInfo.dnd)}>
-            <Emoji label="swords" symbol="⚔️"/>
+            <Emoji label="swords" symbol="⚔️" contextClass="li"/>
             D&D set
         </li>
         <li
           className="button"  
           onClick={() => addMany(diceInfo.settlers)}>
-            <Emoji label="sheep" symbol="🐑" />
+            <Emoji label="sheep" symbol="🐑"  contextClass="li"/>
             Settlers
         </li>
         <li
           className="button"  
           onClick={() => addMany(diceInfo.yahtzee)}>
-            <Emoji symbol="🙋" />
+            <Emoji symbol="🙋"  contextClass="li"/>
             Yahtzee
         </li>
         <li>

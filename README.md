@@ -18,11 +18,13 @@ A handy dandy dice roller for tabletop gaming
 - Change naming convention for die styles
 - Add more die styles
 - Add tests
-- Clean up components (App, CreateMenu, Die, Emoji, If, Modal, Navigation, SettingsMenu, StyleMenu, StyleOption)
+- Standardize grid throughout
+- Make Die size responsive
+- Clean up components (App, CreateMenu, ~~Die~~, ~~Emoji~~, If, Modal, Navigation, SettingsMenu, StyleMenu, StyleOption)
 - Fix bugs
 
 ### Considerations
-- Die components need to receive side and style information once. After that point, the data should be stored in Die state.
+- Consider changed the custom side input into a text field to prevent the browser default increment/decrement buttons
 
 ### Bugs
-- The custom side input on the Die component allows your to input a number that is too high or too low. Write a check on the handle change function to prevent inproper input.
+- The custom side input can accept some non-numbers, but it I haven't found a breaking case yet.

@@ -5,7 +5,7 @@ const Emoji = props => (
     <span
         aria-hidden={props.label ? 'false' : 'true'}
         aria-label={props.label ? props.label : null}
-        className={"emoji" + props.contextClass}
+        className={"emoji" + (props.contextClass ? " " + props.contextClass : "")}
         role="img"
     >
         {props.symbol}
