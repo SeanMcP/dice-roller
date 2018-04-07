@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import IconButton from './functional/IconButton';
 import StyleMenu from './functional/StyleMenu';
 import { randomRoll } from '../utils/';
 
@@ -39,46 +40,30 @@ class Die extends Component {
   render() {
     return (
       <div className={"die " + this.state.style}>
-        <div className="die-screen">
-          <div className="die-info">
-            <label className="die-label">D</label>
-            <input
-              name="die-input"
-              className="die-input"
-              type="number"
-              value={this.state.sides}
-              onChange={this._handleInput}
-            />
-          </div>
-          <div
-            className="die-remove click center"
-            onClick={this._handleRemove}
-          >
-            <i className="material-icons">close</i>
-          </div>
-        </div>
+        <div className="die-sides">D{this.state.sides}</div>
+        <IconButton
+          action={this._handleRemove}
+          contextClass="die-delete"
+          icon="close"
+        />
         <div
-          className={"die-roll click center"  + (this.state.isRolling ? " rolling" : "")}
+          className={"die-roll click center" + (this.state.isRolling ? " rolling" : "")}
           onClick={this._handleRoll}
         >
           {this.state.roll || this.state.sides}
         </div>
-        <div
-          className="die-style click center"
-          onClick={this._toggleStyleMenu}
-        >
-          <i className="material-icons">color_lens</i>
-        </div>
-        {
-          this.state.showStyleMenu
-          ? (
-            <StyleMenu
-              handleSelect={this._handleSelect}
-              toggleStyleMenu={this._toggleStyleMenu}
-            />
-          ) : null
-        }
-      </div>
+        <IconButton
+          action={this._toggleStyleMenu}
+          contextClass="die-edit"
+          icon="color_lens"
+        />
+        {this.state.showStyleMenu ? (
+          <StyleMenu
+            handleSelect={this._handleSelect}
+            toggleStyleMenu={this._toggleStyleMenu}
+          />
+        ) : null}
+      </div >
     );
   }
 
