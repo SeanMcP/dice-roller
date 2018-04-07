@@ -37,10 +37,7 @@ class App extends Component {
         <div className={"total-panel" + (this.state.showTotal ? "" : " hide")}>
           Total: <span>{this.state.total}</span>
         </div>
-        <div
-          className={"sound-indicator" + (this.state.soundOn ? "" : " hide")}
-          onClick={this._toggleSound.bind(this)}
-        >
+        <div className={"sound-indicator" + (this.state.soundOn ? "" : " hide")}>
           <i className="material-icons md-24">
             {this.state.soundOn ? 'volume_up' : 'volume_off'}
           </i>

@@ -1,0 +1,9 @@
+@keyframes pop-in {
+    from { transform: scale(0.8) }
+    to { transform: scale(1.0) }
+}
+
+@keyframes pop-out {
+    from { transform: scale(1.0) }
+    to { transform: scale(0.8) }
+}

@@ -1,12 +1,15 @@
+@import './animation.css';
+
 .nav-bar {
   align-items: center;
   background: #263238;
   bottom: 0;
   color: white;
   display: flex;
+  height: 84px;
   justify-content: space-between;
-  padding: 10px 0 5px;
-  position: absolute;
+  /* padding: 12px 0 6px; */
+  position: fixed;
   width: 100%;
 }
 
@@ -20,10 +23,10 @@
 }
 
 .nav-create {
-  margin-left: 10px;
+  margin-left: 12px;
 }
 .nav-settings {
-  margin-right: 10px;
+  margin-right: 12px;
 }
 
 .nav-roll {
@@ -32,39 +35,44 @@
 }
 
 .total-panel {
+  align-items: center;
   background: #0091EA;
-  bottom: 80px;
+  bottom: 84px;
   color: white;
+  display: flex;
   font-size: 36px;
-  padding: 10px;
+  height: 60px;
+  justify-content: center;
   position: absolute;
-	text-align: center;
-  transition: all 0.2s ease-in-out;
+  transition: all 150ms ease-in-out;
   width: 100%;
 }
 .total-panel span {
   font-weight: 700;
+  margin-left: 6px;
 }
 .total-panel.hide {
-  bottom: -20px;
+  bottom: 24px;
 }
 
 .sound-indicator {
   align-items: center;
+  animation: pop-in 150ms ease-in-out;
   background: rgba(0, 0, 0, 0.2);
   border-radius: 48px;
-  bottom: 91px;
+  bottom: 90px;
   color: white;
   display: flex;
   height: 48px;
   justify-content: center;
-  position: absolute;
-  right: 10px;
-  transition: all 0.2s ease-in-out;
+  position: fixed;
+  right: 12px;
+  transition: all 150ms ease-in-out;
   width: 48px;
   z-index: 0;
 }
 
 .sound-indicator.hide {
-  right: -50px;
+  animation: pop-out 150ms ease-in-out;
+  opacity: 0;
 }
