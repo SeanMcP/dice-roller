@@ -11,10 +11,10 @@ class App extends Component {
     super(props);
 
     this.state = {
-      soundOn: true,
+      soundOn: false,
       dice: ['initial&20&inverted'],
       modal: 'none',
-      showTotal: true,
+      showTotal: false,
       total: null,
     };
 

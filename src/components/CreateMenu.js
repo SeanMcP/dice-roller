@@ -1,22 +1,30 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Emoji from './functional/Emoji';
+import IconButton from './functional/IconButton';
 
 class CreateMenu extends Component {
   constructor(props) {
     super(props);
-    this.state = { newDie: '' };
+
+    this.state = {
+      newDie: '',
+      validateInput: ''
+    };
+
+    this._handleChange = this._handleChange.bind(this);
+    this._handleCreate = this._handleCreate.bind(this);
   }
   render() {
     const diceInfo = {
       dnd: [
-        { sides: 4, style: 'dnd' },
-        { sides: 6, style: 'dnd' },
-        { sides: 8, style: 'dnd' },
-        { sides: 10, style: 'dnd' },
-        { sides: 12, style: 'dnd' },
-        { sides: 20, style: 'dnd' },
-        { sides: 100, style: 'dnd' },
+        { sides: 4, style: 'green-white' },
+        { sides: 6, style: 'green-white' },
+        { sides: 8, style: 'green-white' },
+        { sides: 10, style: 'green-white' },
+        { sides: 12, style: 'green-white' },
+        { sides: 20, style: 'green-white' },
+        { sides: 100, style: 'green-white' },
       ],
       settlers: [
         { sides: 6, style: 'settlers-red' },
@@ -32,21 +40,30 @@ class CreateMenu extends Component {
     };
     const addOne = this.props.addOne;
     const addMany = this.props.addMany;
+    const isError = this.state.validateInput.length > 0;
     return (
       <ul className="create-menu modal-menu create">
-        <li className="heading">Create<i className="material-icons">add_circle</i></li>
+        <li className="heading">Create</li>
         <li>
-            <input
-              type="number"
-              placeholder="Custom die"
-              value={this.state.newDie}
-              onChange={this._handleChange.bind(this)}
-            />
-            <input
-              onClick={this._handleCreate.bind(this)}
-              type="submit"
-              value="Create"
-            />
+          <div className={"custom-die" + (isError ? ' error' : '')}>
+              <input
+                type="number"
+                placeholder="Custom die"
+                value={this.state.newDie}
+                onChange={this._handleChange}
+              />
+              {isError ? (
+                <div className="error-message">
+                  <i className="material-icons md-18">warning</i>
+                  {this.state.validateInput}
+                </div>
+              ) : null}
+              <IconButton
+                contextClass="create"
+                icon="add_circle"
+                action={this._handleCreate}
+              />
+            </div>
         </li>
         <li
           className="button"  
@@ -79,13 +96,21 @@ class CreateMenu extends Component {
 
   _handleChange(e) {
     e.preventDefault();
-    this.setState({ newDie: e.target.value });
+    this.setState({ newDie: e.target.value, validateInput: '' });
   }
 
   _handleCreate() {
-    this.props.addOne({ sides: Number(this.state.newDie) });
-    this.setState({ newDie: '' });
-    this.props.setModal('none');
+    const num = Number(this.state.newDie);
+    if (typeof num !== 'number') {
+      this.setState({ validateInput: 'Must be a number' })
+    } else if (num < 2) {
+      this.setState({ validateInput: 'Must be greater than 1' })
+    } else if (num > 999) {
+      this.setState({ validateInput: 'Must be less than 1000' })
+    } else {
+      this.props.addOne({ sides: Number(this.state.newDie) });
+      this.setState({ newDie: '' });
+    }
   }
 };
 

@@ -4,7 +4,7 @@ import Emoji from './Emoji';
 
 const SettingsMenu = props => (
     <ul className="modal-menu settings">
-        <li className="heading">Settings<i className="material-icons">settings</i></li>
+        <li className="heading">Settings</li>
         <li
             className="button"
             onClick={props.toggleSound}
