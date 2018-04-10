@@ -16,7 +16,8 @@ class Die extends Component {
       isRolling: false
     };
 
-    this._adjustForSize = this._adjustForSize.bind(this);
+    // this._adjustForSize = this._adjustForSize.bind(this);
+    this._duplicate = this._duplicate.bind(this);
     this._handleInput = this._handleInput.bind(this);
     this._handleRemove = this._handleRemove.bind(this);
     this._handleRoll = this._handleRoll.bind(this);
@@ -54,6 +55,11 @@ class Die extends Component {
           {this.state.roll || this.state.sides}
         </div>
         <IconButton
+          action={this._duplicate}
+          contextClass="die-duplicate"
+          icon="content_copy"
+        />
+        <IconButton
           action={this._toggleStyleMenu}
           contextClass="die-edit"
           icon="color_lens"
@@ -70,7 +76,6 @@ class Die extends Component {
 
   _adjustForSize() {
     const length = String(this.state.sides).length;
-    console.log(length);
     if (length < 4) {
       return '';
     } else if (length < 7) {
@@ -81,13 +86,11 @@ class Die extends Component {
     return '';
   }
 
-  _handleRoll() {
-    const sides = this.state.sides;
-    const roll = randomRoll(sides);
-    this.setState({ roll, isRolling: true });
-    setTimeout(() => this.setState({ isRolling: false }), 100);
-    this.props.playSound();
-    return roll;
+  _duplicate() {
+    this.props.addOne({
+      sides: this.state.sides,
+      style: this.state.style
+    });
   }
 
   _handleInput(event) {
@@ -104,6 +107,15 @@ class Die extends Component {
     this.props.removeDie(this.props.id);
   }
 
+  _handleRoll() {
+    const sides = this.state.sides;
+    const roll = randomRoll(sides);
+    this.setState({ roll, isRolling: true });
+    setTimeout(() => this.setState({ isRolling: false }), 100);
+    this.props.playSound();
+    return roll;
+  }
+
   _handleSelect(style) {
     this.setState({ style });
     this._toggleStyleMenu();
@@ -116,6 +128,7 @@ class Die extends Component {
 };
 
 Die.propTypes = {
+  addOne: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,
   removeDie: PropTypes.func.isRequired,
   playSound: PropTypes.func.isRequired,

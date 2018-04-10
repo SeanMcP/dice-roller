@@ -8,12 +8,12 @@ A handy dandy dice roller for tabletop gaming
 - React
 
 ### Features
-- Create multiple dice at a time
+- Create die with anywhere from two to 999,999,999 sides
 - Create popular sets with one click
 - Roll die individually or all at once
 - Find the total (so you don't have to math!)
 - Hear the authentic sound of a real die roll (or not)
-- Select die style
+- Select from nine die styles (including Settler's red and yellow)
 
 ## Maintenance
 
@@ -24,7 +24,9 @@ A handy dandy dice roller for tabletop gaming
 - Make Die size responsive
 - Clean up components (App, ~~CreateMenu~~, ~~Die~~, ~~Emoji~~, IconButton, If, Modal, ~~Navigation~~, ~~SettingsMenu~~, ~~StyleMenu~~, ~~StyleOption~~)
 - Fix bugs
-- Add 'duplicate die' button
+- Custom die style
+- Fill all die with certain style
+- Create multiple custom dice
 
 ### Considerations
 - ~~Consider changed the custom side input into a text field to prevent the browser default increment/decrement buttons~~

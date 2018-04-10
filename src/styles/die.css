@@ -2,6 +2,7 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  margin-bottom: 152px;
   padding: 12px;
 }
 
@@ -24,12 +25,12 @@
   background-color: transparent;
 }
 
-.die-delete, .die-edit {
-  opacity: 0.25;
+.die-delete, .die-duplicate, .die-edit {
+  opacity: 0.05;
   transition: all 150ms ease-in-out;
 }
 
-.die-delete:hover, .die-edit:hover {
+.die-delete:hover, .die-duplicate:hover, .die-edit:hover {
   opacity: 0.75;
 }
 

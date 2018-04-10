@@ -18,21 +18,19 @@ class App extends Component {
       total: null,
     };
 
+    this._addMany = this._addMany.bind(this);
+    this._addOne = this._addOne.bind(this);
+    this._playSound = this._playSound.bind(this);
+    this._removeDie = this._removeDie.bind(this);
+    this._rollAll = this._rollAll.bind(this);
+    this._setModal = this._setModal.bind(this);
+
   }
   render() {
-    const diceArray = this.state.dice.map(id => (
-      <Die
-        key={id}
-        id={id}
-        removeDie={this._removeDie.bind(this)}
-        onRef={ref => this[id] = ref}
-        playSound={this._playSound.bind(this)}
-      />
-    ));
     return (
       <div className="app-container">
         <div className="dice-container">
-          {diceArray}
+          {this._renderDice()}
         </div>
         <div className={"total-panel" + (this.state.showTotal ? "" : " hide")}>
           Total: <span>{this.state.total}</span>
@@ -43,14 +41,14 @@ class App extends Component {
           </i>
         </div>
         <Navigation
-          addMany={this._addMany.bind(this)}
-          addOne={this._addOne.bind(this)}
-          rollAll={this._rollAll.bind(this)}
-          setModal={this._setModal.bind(this)}
+          addMany={this._addMany}
+          addOne={this._addOne}
+          rollAll={this._rollAll}
+          setModal={this._setModal}
         />
         <Modal
           modalState={this.state.modal}
-          setModal={this._setModal.bind(this)}
+          setModal={this._setModal}
         >
           {this._renderModalContent()}
         </Modal>
@@ -89,6 +87,19 @@ class App extends Component {
 
   _toggleSound() {
     this.setState({ soundOn: !this.state.soundOn, modal: 'none' });
+  }
+
+  _renderDice() {
+    return this.state.dice.map(id => (
+      <Die
+        addOne={this._addOne}
+        id={id}
+        key={id}
+        onRef={ref => this[id] = ref}
+        playSound={this._playSound}
+        removeDie={this._removeDie}
+      />
+    ));
   }
 
   _setModal(string) {

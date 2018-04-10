@@ -43,7 +43,7 @@
   font-size: 36px;
   height: 60px;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   transition: all 150ms ease-in-out;
   width: 100%;
 }
