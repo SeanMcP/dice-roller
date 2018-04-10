@@ -2,6 +2,8 @@
 
 A handy dandy dice roller for tabletop gaming
 
+## About
+
 ### Utilizing
 - React
 
@@ -13,13 +15,14 @@ A handy dandy dice roller for tabletop gaming
 - Hear the authentic sound of a real die roll (or not)
 - Select die style
 
+## Maintenance
+
 ### To Do
 - Create favicon.ico
-- Add more die styles
 - Add tests
 - Standardize grid throughout
 - Make Die size responsive
-- Clean up components (App, ~~CreateMenu~~, ~~Die~~, ~~Emoji~~, IconButton, If, Modal, ~~Navigation~~, SettingsMenu, StyleMenu, StyleOption)
+- Clean up components (App, ~~CreateMenu~~, ~~Die~~, ~~Emoji~~, IconButton, If, Modal, ~~Navigation~~, ~~SettingsMenu~~, ~~StyleMenu~~, ~~StyleOption~~)
 - Fix bugs
 - Allow die with large side numbers (add class to Die to reduce `font-size`)
 
@@ -30,7 +33,6 @@ A handy dandy dice roller for tabletop gaming
 ### Bugs
 - crickets
 
----
 ## Style guide
 
 ### Spacing

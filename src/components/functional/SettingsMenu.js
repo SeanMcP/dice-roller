@@ -9,9 +9,7 @@ const SettingsMenu = props => (
             className="button"
             onClick={props.toggleSound}
         >
-            <i className="material-icons">
-                {props.soundOn ? 'volume_off' : 'volume_up'}
-            </i>
+            <i className="material-icons">volume_up</i>
             Toggle sound
         </li>
         <li
@@ -29,7 +27,7 @@ const SettingsMenu = props => (
             Remove all dice
         </li>
         <li>Project repository on <a href="https://github.com/seanmcp/dice-roller">GitHub</a></li>
-        <li>Made with <Emoji label="love" symbol="❤️"/> by <a href="https://github.com/seanmcp">SeanMcP</a></li>
+        <li>Made with <Emoji label="love" symbol="❤️"/> by <a href="https://twitter.com/mcpcodes">SeanMcP</a></li>
     </ul>
 );
 

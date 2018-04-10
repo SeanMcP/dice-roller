@@ -18,13 +18,13 @@ class CreateMenu extends Component {
   render() {
     const diceInfo = {
       dnd: [
-        { sides: 4, style: 'green-white' },
-        { sides: 6, style: 'green-white' },
-        { sides: 8, style: 'green-white' },
-        { sides: 10, style: 'green-white' },
-        { sides: 12, style: 'green-white' },
-        { sides: 20, style: 'green-white' },
-        { sides: 100, style: 'green-white' },
+        { sides: 4, style: 'green' },
+        { sides: 6, style: 'green' },
+        { sides: 8, style: 'green' },
+        { sides: 10, style: 'green' },
+        { sides: 12, style: 'green' },
+        { sides: 20, style: 'green' },
+        { sides: 100, style: 'green' },
       ],
       settlers: [
         { sides: 6, style: 'settlers-red' },

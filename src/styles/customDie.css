@@ -1,24 +1,44 @@
-.die.settlers-red, .settlers-red {
+.settlers-red {
   background: #C62828;
   color: #FDD835;
 }
 
-.die.settlers-yellow, .settlers-yellow {
+.settlers-yellow {
   background: #FDD835;
   color: #C62828;
 }
 
-.die.inverted, .inverted {
+.inverted {
   background: #263238;
   color: #ECEFF1;
 }
 
-.die.classic, .classic {
+.classic {
   background: #ECEFF1;
   color: #263238;
 }
 
-.die.green-white, .green-white {
+.green {
   background: #43A047;
+  color: #ECEFF1;
+}
+
+.blue {
+  background: #1565C0;
+  color: #ECEFF1;
+}
+
+.purple {
+  background: #5E35B1;
+  color: #ECEFF1;
+}
+
+.orange {
+  background: #F57C00;
+  color: #ECEFF1;
+}
+
+.pink {
+  background: #EC407A;
   color: #ECEFF1;
 }

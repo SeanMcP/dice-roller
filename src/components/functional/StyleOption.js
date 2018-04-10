@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const StyleOption = props => (
-  <div className={"style-option click " + props.contextClass} onClick={props.onClick}>
+  <div
+    className={"style-option click " + props.contextClass}
+    onClick={props.onClick}
+  >
     •
   </div>
 );
