@@ -105,8 +105,8 @@ class CreateMenu extends Component {
       this.setState({ validateInput: 'Must be a number' })
     } else if (num < 2) {
       this.setState({ validateInput: 'Must be greater than 1' })
-    } else if (num > 999) {
-      this.setState({ validateInput: 'Must be less than 1000' })
+    } else if (num > 999999999) {
+      this.setState({ validateInput: 'Must be less than 1x10^9' })
     } else {
       this.props.addOne({ sides: Number(this.state.newDie) });
       this.setState({ newDie: '' });

@@ -16,6 +16,7 @@ class Die extends Component {
       isRolling: false
     };
 
+    this._adjustForSize = this._adjustForSize.bind(this);
     this._handleInput = this._handleInput.bind(this);
     this._handleRemove = this._handleRemove.bind(this);
     this._handleRoll = this._handleRoll.bind(this);
@@ -39,7 +40,7 @@ class Die extends Component {
   }
   render() {
     return (
-      <div className={"die " + this.state.style}>
+      <div className={"die " + this.state.style + this._adjustForSize()}>
         <div className="die-sides">D{this.state.sides}</div>
         <IconButton
           action={this._handleRemove}
@@ -65,6 +66,19 @@ class Die extends Component {
         ) : null}
       </div >
     );
+  }
+
+  _adjustForSize() {
+    const length = String(this.state.sides).length;
+    console.log(length);
+    if (length < 4) {
+      return '';
+    } else if (length < 7) {
+      return ' large'
+    } else if (length < 10) {
+      return ' giant'
+    }
+    return '';
   }
 
   _handleRoll() {

@@ -24,7 +24,7 @@ A handy dandy dice roller for tabletop gaming
 - Make Die size responsive
 - Clean up components (App, ~~CreateMenu~~, ~~Die~~, ~~Emoji~~, IconButton, If, Modal, ~~Navigation~~, ~~SettingsMenu~~, ~~StyleMenu~~, ~~StyleOption~~)
 - Fix bugs
-- Allow die with large side numbers (add class to Die to reduce `font-size`)
+- Add 'duplicate die' button
 
 ### Considerations
 - ~~Consider changed the custom side input into a text field to prevent the browser default increment/decrement buttons~~

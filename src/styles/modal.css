@@ -112,6 +112,7 @@
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
     color: #F57C00;
     display: flex;
+    font-size: 12px;
     left: -1px;
     padding: 6px;
     position: absolute;

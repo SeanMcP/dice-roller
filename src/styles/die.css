@@ -78,6 +78,24 @@
   align-self: center;
 }
 
+/* Account for large sides */
+
+.die.large .die-sides {
+  font-size: 15px;
+}
+
+.die.large .die-roll {
+  font-size: 24px;
+}
+
+.die.giant .die-sides {
+  font-size: 9px;
+}
+
+.die.giant .die-roll {
+  font-size: 15px;
+}
+
 /* Animations */
 
 @keyframes die-in {
