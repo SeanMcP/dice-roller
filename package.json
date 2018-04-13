@@ -1,8 +1,10 @@
 {
   "name": "dice-roller",
   "version": "0.1.0",
+  "homepage": "https://seanmcp.github.io/dice-roller",
   "private": true,
   "dependencies": {
+    "gh-pages": "^1.1.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -13,6 +15,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "predeploy": "npm run build",
+    "deplay": "gh-pages run build",
     "eject": "react-scripts eject"
   }
 }
