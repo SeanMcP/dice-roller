@@ -18,7 +18,6 @@ A handy dandy dice roller for tabletop gaming
 ## Maintenance
 
 ### To Do
-- Create favicon.ico
 - Add tests
 - Standardize grid throughout
 - Make Die size responsive
