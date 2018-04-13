@@ -2,6 +2,8 @@
 
 A handy dandy dice roller for tabletop gaming
 
+[Deployed link](https://seanmcp.github.io/dice-roller/)
+
 ## About
 
 ### Utilizing
@@ -18,6 +20,7 @@ A handy dandy dice roller for tabletop gaming
 ## Maintenance
 
 ### To Do
+- Create custom die on "enter"
 - Add tests
 - Standardize grid throughout
 - Make Die size responsive
@@ -28,7 +31,6 @@ A handy dandy dice roller for tabletop gaming
 - Create multiple custom dice
 
 ### Considerations
-- ~~Consider changed the custom side input into a text field to prevent the browser default increment/decrement buttons~~
 - Toggle an `input[type=range]` to change the number of sides on a die
 
 ### Bugs
