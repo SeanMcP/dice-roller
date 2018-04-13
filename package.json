@@ -1,7 +1,13 @@
 {
   "name": "dice-roller",
+  "description": "A handy dice roller for table-top gaming",
   "version": "0.1.0",
   "homepage": "https://seanmcp.github.io/dice-roller",
+  "author": "Sean McPherson <sean@seanmcp.com> (http://github.com/seanmcp)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seanmcp/dice-roller.git"
+  },
   "private": true,
   "dependencies": {
     "gh-pages": "^1.1.0",
@@ -16,7 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "predeploy": "npm run build",
-    "deplay": "gh-pages run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   }
 }
