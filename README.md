@@ -15,25 +15,6 @@ A handy dandy dice roller for table-top gaming. [Live on GitHub Pages](https://s
 - Hear the authentic sound of a real die roll (or not)
 - Select from nine die styles (including Settler's red and yellow)
 
-## Maintenance
-
-### To Do
-- Create custom die on "enter"
-- Add tests
-- Standardize grid throughout
-- Make Die size responsive
-- Clean up components (App, ~~CreateMenu~~, ~~Die~~, ~~Emoji~~, IconButton, If, Modal, ~~Navigation~~, ~~SettingsMenu~~, ~~StyleMenu~~, ~~StyleOption~~)
-- Fix bugs
-- Custom die style
-- Fill all die with certain style
-- Create multiple custom dice
-
-### Considerations
-- Toggle an `input[type=range]` to change the number of sides on a die
-
-### Bugs
-- crickets
-
 ## Style guide
 
 ### Spacing
