@@ -9,36 +9,22 @@ class Die extends Component {
     super(props);
 
     this.state = {
-      sides: 20,
+      sides: props.sides,
       roll: null,
-      style: "classic",
+      style: props.style,
       showStyleMenu: false,
       isRolling: false
-    };
-
-    // this._adjustForSize = this._adjustForSize.bind(this);
-    this._duplicate = this._duplicate.bind(this);
-    this._handleInput = this._handleInput.bind(this);
-    this._handleRemove = this._handleRemove.bind(this);
-    this._handleRoll = this._handleRoll.bind(this);
-    this._handleSelect = this._handleSelect.bind(this);
-    this._toggleStyleMenu = this._toggleStyleMenu.bind(this);
+    }
   }
+
   componentDidMount() {
-    const idCode = this.props.id.split('&');
-    const sides = Number(idCode[1]);
-    const style = idCode[2];
-    if (this.state.sides !== sides) {
-      this.setState({ sides });
-    }
-    if (this.state.style !== style) {
-      this.setState({ style });
-    }
     this.props.onRef(this)
   }
+
   componentWillUnmount() {
     this.props.onRef(undefined)
   }
+
   render() {
     return (
       <div className={"die " + this.state.style + this._adjustForSize()}>
@@ -64,17 +50,17 @@ class Die extends Component {
           contextClass="die-edit"
           icon="color_lens"
         />
-        {this.state.showStyleMenu ? (
+        {this.state.showStyleMenu && (
           <StyleMenu
             handleSelect={this._handleSelect}
             toggleStyleMenu={this._toggleStyleMenu}
           />
-        ) : null}
+        )}
       </div >
     );
   }
 
-  _adjustForSize() {
+  _adjustForSize = () => {
     const length = String(this.state.sides).length;
     if (length < 4) {
       return '';
@@ -86,28 +72,18 @@ class Die extends Component {
     return '';
   }
 
-  _duplicate() {
+  _duplicate = () => {
     this.props.addOne({
       sides: this.state.sides,
       style: this.state.style
     });
   }
 
-  _handleInput(event) {
-    let newVal = event.target.value.replace(/^[0]+/g, '');
-    if (newVal.includes('-')) {
-      newVal = 1;
-    } else if (newVal > 999) {
-      newVal = 999;
-    }
-    this.setState({ sides: newVal });
-  }
-
-  _handleRemove() {
+  _handleRemove = () => {
     this.props.removeDie(this.props.id);
   }
 
-  _handleRoll() {
+  _handleRoll = () => {
     const sides = this.state.sides;
     const roll = randomRoll(sides);
     this.setState({ roll, isRolling: true });
@@ -116,12 +92,12 @@ class Die extends Component {
     return roll;
   }
 
-  _handleSelect(style) {
+  _handleSelect = (style) => {
     this.setState({ style });
     this._toggleStyleMenu();
   }
 
-  _toggleStyleMenu() {
+  _toggleStyleMenu = () => {
     this.setState({ showStyleMenu: !this.state.showStyleMenu });
   }
 

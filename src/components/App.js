@@ -12,20 +12,15 @@ class App extends Component {
 
     this.state = {
       soundOn: false,
-      dice: ['initial&20&inverted'],
+      diceList: [
+        this._createDieObject(20, 'inverted')
+      ],
       modal: 'none',
       showTotal: false,
       total: null,
     };
-
-    this._addMany = this._addMany.bind(this);
-    this._addOne = this._addOne.bind(this);
-    this._playSound = this._playSound.bind(this);
-    this._removeDie = this._removeDie.bind(this);
-    this._rollAll = this._rollAll.bind(this);
-    this._setModal = this._setModal.bind(this);
-
   }
+
   render() {
     return (
       <div className="app-container">
@@ -57,72 +52,83 @@ class App extends Component {
     );
   }
 
-  _addOne(die) {
-    const output = this.state.dice || [];
+  _addOne = (die) => {
+    const diceList = [...this.state.diceList];
+    let sides, style
     if (typeof die === 'object') {
-      output.push(uuid() + '&' + die.sides + '&' + (die.style ? die.style : 'classic'));
+      sides = die.sides;
+      style = die.style;
     }
     if (typeof die === 'number') {
-      output.push(uuid() + '&' + die + '&classic');
+      sides = die;
     }
-    this.setState({ dice: output, modal: 'none' });
+    diceList.push(this._createDieObject(sides, style))
+    this.setState({ diceList, modal: 'none' });
   }
 
-  _addMany(diceArray) {
-    const output = [];
+  _addMany = (diceArray) => {
+    const diceList = [...this.state.diceList];
     diceArray.forEach(die => {
-      output.push(uuid() + '&' + die.sides + '&' + (die.style ? die.style : 'classic'));
+      diceList.push(this._createDieObject(die.sides, die.style));
     })
-    this.setState({ dice: output, modal: 'none' });
+    this.setState({ diceList, modal: 'none' });
   }
 
-  _removeDie(id) {
-    const filteredArray = this.state.dice.filter(storeId => storeId !== id);
-    this.setState({ dice: filteredArray, modal: 'none' });
+  _createDieObject = (sides = 20, style = 'classic') => {
+    return {
+      id: uuid(),
+      sides,
+      style
+    }
   }
 
-  _clearDice() {
-    this.setState({ dice: [], modal: 'none' });
+  _removeDie = (id) => {
+    const diceList = this.state.diceList.filter(die => die.id !== id);
+    this.setState({ diceList, modal: 'none' });
   }
 
-  _toggleSound() {
-    this.setState({ soundOn: !this.state.soundOn, modal: 'none' });
+  _clearDice = () => {
+    this.setState({ diceList: [], modal: 'none' });
   }
 
-  _renderDice() {
-    return this.state.dice.map(id => (
+  _renderDice = () => {
+    return this.state.diceList.map(die => (
       <Die
+        {...die}
         addOne={this._addOne}
-        id={id}
-        key={id}
-        onRef={ref => this[id] = ref}
+        key={die.id}
+        onRef={ref => this[die.id] = ref}
         playSound={this._playSound}
         removeDie={this._removeDie}
       />
     ));
   }
 
-  _setModal(string) {
+  _setModal = (string) => {
     this.setState({ modal: string });
   }
+  
+  _toggleSound = () => {
+    this.setState(prevState => ({ soundOn: !prevState.soundOn, modal: 'none' }));
+  }
 
-  _toggleTotal() {
-    this.setState({ showTotal: !this.state.showTotal, modal: 'none' });
+  _toggleTotal = () => {
+    this.setState(prevState => ({ showTotal: !prevState.showTotal, modal: 'none' }));
   }
 
   _renderModalContent() {
     const hash = {
       settings: (
         <SettingsMenu
-          clearDice={this._clearDice.bind(this)}
-          toggleSound={this._toggleSound.bind(this)}
-          toggleTotal={this._toggleTotal.bind(this)}
+          clearDice={this._clearDice}
+          toggleSound={this._toggleSound}
+          toggleTotal={this._toggleTotal}
         />
       ),
       create: (
         <CreateMenu
-          addOne={this._addOne.bind(this)}
-          addMany={this._addMany.bind(this)}
+          addOne={this._addOne}
+          addMany={this._addMany}
         />
       )
     }
@@ -130,21 +136,21 @@ class App extends Component {
     return hash[this.state.modal];
   }
 
-  _setMenu(bool) {
+  _setMenu = (bool) => {
     this.setState({ menuOpen: bool });
   }
 
-  _rollAll() {
-    let total = 0;
-    this.state.dice.forEach(id => {
+  _rollAll = () => {
+    const total = this.state.diceList.reduce((accumulator, { id }) => {
       const roll = this[id]._handleRoll();
-      total += roll;
-    })
+      accumulator += roll;
+      return accumulator;
+    }, 0)
     this.setState({ total });
     this._playSound();
   }
 
-  _playSound() {
+  _playSound = () => {
     if (this.state.soundOn) {
       this.audio.play();
     }
