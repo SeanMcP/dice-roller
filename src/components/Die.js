@@ -30,9 +30,10 @@ class Die extends Component {
       <div className={"die " + this.state.style + this._adjustForSize()}>
         <div className="die-sides">D{this.state.sides}</div>
         <IconButton
-          action={this._handleRemove}
-          contextClass="die-delete"
+          className="die-delete"
           icon="close"
+          label="Delete"
+          onClick={this._handleRemove}
         />
         <div
           className={"die-roll click center" + (this.state.isRolling ? " rolling" : "")}
@@ -41,14 +42,16 @@ class Die extends Component {
           {this.state.roll || this.state.sides}
         </div>
         <IconButton
-          action={this._duplicate}
-          contextClass="die-duplicate"
+          className="die-duplicate"
           icon="content_copy"
+          label="Duplicate"
+          onClick={this._duplicate}
         />
         <IconButton
-          action={this._toggleStyleMenu}
-          contextClass="die-edit"
+          className="die-edit"
           icon="color_lens"
+          label="Style"
+          onClick={this._toggleStyleMenu}
         />
         {this.state.showStyleMenu && (
           <StyleMenu

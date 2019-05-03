@@ -59,9 +59,10 @@ class CreateMenu extends Component {
                 </div>
               ) : null}
               <IconButton
-                contextClass="create"
+                className="create"
                 icon="add_circle"
-                action={this._handleCreate}
+                label="Create"
+                onClick={this._handleCreate}
               />
             </div>
         </li>
