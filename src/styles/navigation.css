@@ -1,4 +1,4 @@
-@import './animation.css';
+@import "./animation.css";
 
 .nav-bar {
   align-items: center;
@@ -15,11 +15,11 @@
 
 .nav-bar,
 .total-panel {
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.25);  
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.25);
 }
 
-.nav-bar > div:hover {
-  color: #80D8FF;
+.nav-button:hover {
+  color: #80d8ff;
 }
 
 .nav-create {
@@ -36,7 +36,7 @@
 
 .total-panel {
   align-items: center;
-  background: #0091EA;
+  background: #0091ea;
   bottom: 84px;
   color: white;
   display: flex;
