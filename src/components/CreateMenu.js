@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Emoji from './functional/Emoji';
+import Emoji from 'a11y-react-emoji';
 import IconButton from './functional/IconButton';
 
 class CreateMenu extends Component {
