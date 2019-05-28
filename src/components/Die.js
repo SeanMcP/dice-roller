@@ -35,12 +35,12 @@ class Die extends Component {
           label="Delete"
           onClick={this._handleRemove}
         />
-        <div
+        <button
           className={"die-roll click center" + (this.state.isRolling ? " rolling" : "")}
           onClick={this._handleRoll}
         >
           {this.state.roll || this.state.sides}
-        </div>
+        </button>
         <IconButton
           className="die-duplicate"
           icon="content_copy"

@@ -35,6 +35,7 @@
 }
 
 .die-roll {
+  color: inherit;
   font-size: 48px;
   font-weight: bold;
   height: 50%;
