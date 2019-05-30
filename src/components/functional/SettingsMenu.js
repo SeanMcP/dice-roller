@@ -17,7 +17,7 @@ const SettingsMenu = props => (
             onClick={props.toggleTotal}
         >
             <i className="material-icons">add_to_photos</i>
-            Find total
+            Toggle total bar
         </li>
         <li
             className="button"

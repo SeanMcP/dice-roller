@@ -47,8 +47,7 @@
   transition: all 150ms ease-in-out;
   width: 100%;
 }
-.total-panel span {
-  font-weight: 700;
+.total-panel b {
   margin-left: 6px;
 }
 .total-panel.hide {
@@ -66,7 +65,7 @@
   height: 48px;
   justify-content: center;
   position: fixed;
-  right: 12px;
+  right: 20px;
   transition: all 150ms ease-in-out;
   width: 48px;
   z-index: 0;
@@ -74,5 +73,6 @@
 
 .sound-indicator.hide {
   animation: pop-out 150ms ease-in-out;
-  opacity: 0;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.2);
 }
