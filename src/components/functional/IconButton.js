@@ -19,10 +19,8 @@ const IconButton = ({ className, icon, label, size=24, theme, ...props }) => (
 );
 
 IconButton.propTypes = {
-    className: PropTypes.string,
     icon: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
     size: PropTypes.oneOf([18, 24, 36, 48]),
     theme: PropTypes.oneOf(['dark', 'light'])
 };
