@@ -75,20 +75,17 @@
 
 .custom-die {
     align-items: center;
-    background: #eee;
-    border: 1px solid transparent;
-    border-radius: 3px;
     display: flex;
     position: relative;
     transition: all 150ms ease-in-out;
 }
 
 .custom-die input {
-    background: transparent;
+    background: #eee;
+    border-radius: 3px;
     border: 0;
-    font-size: 15px;
+    flex-grow: 1;
     padding: 6px;
-    width: 100%;
 }
 
 .custom-die input:focus {
@@ -96,7 +93,8 @@
 }
 
 .custom-die .create {
-    padding: 0 6px;
+    margin-left: 12px;
+    padding: 0;
 }
 
 .custom-die .create:hover {
